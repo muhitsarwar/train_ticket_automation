@@ -83,7 +83,10 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 	searchTicket(presedenceIndex);
 	
 	$('body').on('DOMNodeInserted', '#info', function () {
-		if($("#frm_book").length > 0) return;
+		if($("#frm_book").length > 0) {
+			console.log($("#frm_book").html())
+			return;
+		}
 
 		presedenceIndex++;
 	    searchTicket(presedenceIndex);
