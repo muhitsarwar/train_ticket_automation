@@ -32,11 +32,13 @@ if($("#station_from").length > 0){
 	$('body').on('DOMNodeInserted', '#journey_date', function () {
 	      $("#journey_date").val(deptDate);
 	      eventTrigger("journey_date");
+	      $("#button1").click();
 	});
 
 	$('body').on('DOMNodeInserted', '#station_to', function () {
 	      $("#station_to").val(stattionTo);
 	      eventTrigger("station_to");
+	      $("#button1").click();
 	});
 
 	$('body').on('DOMNodeInserted', '#route_class', function () {
