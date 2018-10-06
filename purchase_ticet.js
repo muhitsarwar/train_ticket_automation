@@ -1,6 +1,6 @@
 let deptDate = "15-10-2018";
 let adultCount = 1;
-let payMethod = 'book_dbbl';
+let payMethod = 'book_dbbl'; // book_brac book_dbbl
 let presedence = [[0, 'AC_B'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
 let stationFrom = "DA";
 let stattionTo = "RJHI";
@@ -9,7 +9,7 @@ let stattionTo = "RJHI";
 // let stationFrom = "RJHI";
 // let stattionTo = "DA";
 
-let reloadTime = 5000;
+let reloadTime = 10000;
 let songUrl = 'https://www.youtube.com/watch?v=OPf0YbXqDm0';
 
 
