@@ -1,5 +1,7 @@
 let deptDate = "15-10-2018";
 let adultCount = 1;
+let payMethod = 'book_dbbl';
+let presedence = [[0, 'AC_B'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
 let stationFrom = "DA";
 let stattionTo = "RJHI";
 
@@ -7,10 +9,15 @@ let stattionTo = "RJHI";
 // let stationFrom = "RJHI";
 // let stattionTo = "DA";
 
-let payMethod = 'book_dbbl';
 let reloadTime = 5000;
+let songUrl = 'https://www.youtube.com/watch?v=OPf0YbXqDm0';
 
-let presedence = [[0, 'AC_B'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
+
+
+
+
+
+
 console.log('=========******************=============');
 pageReload();
 
@@ -79,14 +86,21 @@ if($("#station_from").length > 0){
 //=========================================================================================================================
 
 if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row").length > 0){
-	console.log('intiating selection of train!!!')
+	console.log('intiating selection of train!!!');
 
 	var presedenceIndex = 0;
 	searchTicket(presedenceIndex);
 	
 	$('body').on('DOMNodeInserted', '#info #frm_book', function () {
 		console.log('success');
-		keepDisplayAlive();
+		console.log($('#frm_book').html());
+
+
+		window.open(songUrl);
+		window.open("", "TicketDetails", "width=200,height=100").document.write($('#frm_book').html());
+		overrideConfirm();
+		$('#'+payMethod).click();
+		// keepDisplayAlive();
 	});
 
 
@@ -129,7 +143,11 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 
 
 
-
+function overrideConfirm(){
+	var s = document.createElement('script');
+	s.innerHTML = "window.confirm=function(){return true;};"
+	document.body.appendChild(s);
+}
 
 function pageReload()
 {
