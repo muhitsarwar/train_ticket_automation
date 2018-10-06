@@ -2,15 +2,17 @@ let deptDate = "15-10-2018";
 let adultCount = 1;
 let stationFrom = "DA";
 let stattionTo = "RJHI";
-let payMethod = 'book_dbbl';
+
 
 // let stationFrom = "RJHI";
 // let stattionTo = "DA";
 
+let payMethod = 'book_dbbl';
+let reloadTime = 5000;
+
 let presedence = [[0, 'AC_B'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
-
 console.log('=========******************=============');
-
+pageReload();
 
 
 
@@ -33,17 +35,16 @@ if($("#station_from").length > 0){
 	$('body').on('DOMNodeInserted', '#journey_date', function () {
 	      $("#journey_date").val(deptDate);
 	      eventTrigger("journey_date");
-	      $("#button1").click();
 	});
 
 	$('body').on('DOMNodeInserted', '#station_to', function () {
 	      $("#station_to").val(stattionTo);
 	      eventTrigger("station_to");
-	      $("#button1").click();
 	});
 
 	$('body').on('DOMNodeInserted', '#route_class', function () {
 	      $("#route_class").val("S_CHAIR");
+	      eventTrigger("journey_date");
 	      $("#button1").click();
 	});
 
@@ -130,6 +131,19 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 
 
 
+function pageReload()
+{
+    var handle = window.setInterval(function(){
+    	console.log('trying reload');
+
+        if($('#frm_book').length == 0){
+        	window.location.href="https://www.esheba.cnsbd.com/train/purchaseticket";
+        }else{
+        	window.clearInterval(handle);
+        }
+
+    }, reloadTime);
+}
 
 
 
