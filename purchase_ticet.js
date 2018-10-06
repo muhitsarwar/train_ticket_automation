@@ -85,8 +85,7 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 	
 	$('body').on('DOMNodeInserted', '#info #frm_book', function () {
 		console.log('success');
-		console.log($("#frm_book").html());
-		$('#'+payMethod).click();
+		keepDisplayAlive();
 	});
 
 
@@ -134,7 +133,19 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 
 
 
+function keepDisplayAlive()
+{
+    var handle = window.setInterval(function(){
 
+        var element = $("#info");
+        if (element.css("display") == "none") {
+            console.log('display none');
+            $('#info').css('display', 'block');
+            window.clearInterval(handle);
+        }
+
+    }, 100);
+}
 
 
 
