@@ -1,12 +1,13 @@
-let deptDate = "11-10-2018";
+let deptDate = "15-10-2018";
 let adultCount = 1;
 let stationFrom = "DA";
 let stattionTo = "RJHI";
+let payMethod = 'book_dbbl';
 
 // let stationFrom = "RJHI";
 // let stattionTo = "DA";
 
-let presedence = [[0, 'SNIGDHA'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
+let presedence = [[0, 'AC_B'], [1, 'SNIGDHA'], [1, 'S_CHAIR']];
 
 console.log('=========******************=============');
 
@@ -82,14 +83,18 @@ if($("#train_route_div_b").length > 0 && presedence.length > 0 && $(".train_row"
 	var presedenceIndex = 0;
 	searchTicket(presedenceIndex);
 	
-	$('body').on('DOMNodeInserted', '#info', function () {
-		if($("#frm_book").length > 0) {
-			console.log($("#frm_book").html())
-			return;
-		}
+	$('body').on('DOMNodeInserted', '#info #frm_book', function () {
+		console.log('success');
+		console.log($("#frm_book").html());
+		$('#'+payMethod).click();
+	});
 
+
+	$('body').on('DOMNodeInserted', '#info .er_msg', function () {
+		console.log('error');
 		presedenceIndex++;
-	    searchTicket(presedenceIndex);
+    	searchTicket(presedenceIndex);
+		
 	});
 	
 }
